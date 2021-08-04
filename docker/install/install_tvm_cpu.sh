@@ -29,6 +29,8 @@ git checkout 4b13bf668edc7099b38d463e5db94ebc96c80470
 echo set\(USE_LLVM llvm-config-8\) >> config.cmake
 echo set\(USE_GRAPH_EXECUTOR ON\) >> config.cmake
 echo set\(USE_BLAS openblas\) >> config.cmake
+echo set\(USE_SGX /opt/sgxsdk\) >> config.cmake
+echo set\(RUST_SGX_SDK /opt/rust-sgx-sdk\) >> config.cmake
 mkdir -p build
 cd build
 cmake ..

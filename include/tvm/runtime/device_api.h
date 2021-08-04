@@ -308,6 +308,7 @@ inline Device AddRPCSessionMask(Device dev, int session_table_index) {
   return dev;
 }
 
+#ifndef _LIBCPP_SGX_NO_IOSTREAMS
 inline std::ostream& operator<<(std::ostream& os, DLDevice dev) {  // NOLINT(*)
   if (IsRPCSessionDevice(dev)) {
     os << "remote[" << GetRPCSessionIndex(dev) << "]-";
@@ -316,6 +317,8 @@ inline std::ostream& operator<<(std::ostream& os, DLDevice dev) {  // NOLINT(*)
   os << runtime::DeviceName(static_cast<int>(dev.device_type)) << "(" << dev.device_id << ")";
   return os;
 }
+
+#endif
 }  // namespace runtime
 }  // namespace tvm
 
